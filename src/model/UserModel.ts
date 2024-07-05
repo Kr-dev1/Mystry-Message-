@@ -17,10 +17,10 @@ const MessageSchema: Schema<Message> = new Schema({
   },
 });
 
-export interface Message extends Document {
-  userName: string;
-  userEmail: string;
-  userPassword: string;
+export interface User extends Document {
+  username: string;
+  email: string;
+  password: string;
   verifyCode: string;
   verifyCodeExpiry: Date;
   isAcceptingMessage: Boolean;
@@ -28,14 +28,14 @@ export interface Message extends Document {
   messages: Message[];
 }
 
-const UserSchema: Schema<Message> = new Schema({
-  userName: {
+const UserSchema: Schema<User> = new Schema({
+  username: {
     type: String,
     required: [true, "Username is required"],
     trim: true,
     unique: true,
   },
-  userEmail: {
+  email: {
     type: String,
     required: [true, "Email is required"],
     unique: true,
@@ -44,7 +44,7 @@ const UserSchema: Schema<Message> = new Schema({
       "Please enter a valid email",
     ],
   },
-  userPassword: {
+  password: {
     type: String,
     required: [true, "Password is required"],
   },
