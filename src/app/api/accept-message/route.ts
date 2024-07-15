@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   await dbConnect();
 
   const session = await getServerSession(authOptions);
-  const user: User = session?.user;
+  const user: User = session?.user as User;
   if (!session || !session.user) {
     return Response.json(
       { success: false, message: "Not authenticated" },
@@ -89,7 +89,7 @@ export async function GET(request: Request) {
     return Response.json(
       {
         success: true,
-        isAcceptingMessages: foundUser.isAcceptingMessage,
+        isAcceptingMessages: foundUser.isAcceptingMessages,
       },
       { status: 200 }
     );
