@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const MessageSchema = z.object({
-  conent: z
+  content: z
     .string()
     .min(1, { message: "Cannot send an empty message" })
-    .max(30, { message: "Cannot send message more than 30 characters" }),
+    .max(50, { message: "Cannot send message more than 50 characters" }),
 });
