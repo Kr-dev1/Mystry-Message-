@@ -69,8 +69,6 @@ function UserDashboard() {
           });
         }
       } catch (error) {
-        console.log(error);
-        
         const axiosError = error as AxiosError<Apiresponse>;
         toast({
           title: "Error",

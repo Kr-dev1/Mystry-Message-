@@ -28,9 +28,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 const specialChar = "||";
 
 const parseStringMessages = (messageString: string): string[] => {
-  console.log(messageString.split(specialChar).map((item) => item.trim()));
-
-  return messageString.split(specialChar);
+  return messageString.split(specialChar).map((item) => item.trim());
 };
 
 export default function SendMessage() {
@@ -44,7 +42,6 @@ export default function SendMessage() {
   const messageContent = form.watch("content");
 
   const handleMessageClick = (message: string) => {
-    console.log(message.split(""));
     form.setValue("content", message);
   };
 
@@ -180,9 +177,7 @@ export default function SendMessage() {
                     key={index}
                     variant="outline"
                     className="mb-2"
-                    onClick={() => (
-                      console.log(message), handleMessageClick(message)
-                    )}
+                    onClick={() => handleMessageClick(message)}
                   >
                     {message}
                   </Button>
